@@ -1,55 +1,28 @@
-import data from "./data";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
 function App() {
   return (
-    <div className='grid-container'>
-      <header className='row'>
-        <div>
-          <a className='brand' href='/'>
-            amaxonia
-          </a>
-        </div>
-        <div>
-          <a href='/cart'>Cart</a>
-          <a href='/signin'>Signin</a>
-        </div>
-      </header>
-      <main>
-        <div className='row center'>
-          {data.products.map(product => (
-            <div key={product.id} className='card'>
-              <a href={`product/${product.id}`}>
-                <img className='medium' src={product.image} alt='product' />
-              </a>
-              <div className='card-body'>
-                <a href={`product/${product.id}`}>
-                  <h2>{product.name}</h2>
-                </a>
-                <div className='rating'>
-                  <span>
-                    <i className='fa fa-star'></i>
-                  </span>
-                  <span>
-                    <i className='fa fa-star'></i>
-                  </span>
-                  <span>
-                    <i className='fa fa-star'></i>
-                  </span>
-                  <span>
-                    <i className='fa fa-star'></i>
-                  </span>
-                  <span>
-                    <i className='fa fa-star'></i>
-                  </span>
-                </div>
-                <div className='price'>${product.price}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-      <footer className='row center'>All rights reserved</footer>
-    </div>
+    <Router>
+      <div className='grid-container'>
+        <header className='row'>
+          <div>
+            <a className='brand' href='/'>
+              nasmaxon
+            </a>
+          </div>
+          <div>
+            <a href='/cart'>Cart</a>
+            <a href='/signin'>Signin</a>
+          </div>
+        </header>
+        <main>
+          <Route path='/' component={HomeScreen} exact />
+          <Route path='/product/:id' component={ProductScreen} />
+        </main>
+        <footer className='row center'>All rights reserved</footer>
+      </div>
+    </Router>
   );
 }
 
