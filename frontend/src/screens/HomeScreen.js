@@ -4,26 +4,19 @@ import axios from "axios";
 import Product from "./../components/Product";
 import MessageBox from "./../components/MessageBox";
 import LoadingBox from "./../components/LoadingBox";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../actions/productActions";
 
 const HomeScreen = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-
+  const productList = useSelector(state => state.productList);
+  const dispatch = useDispatch();
+  const { loading, error, products } = productList;
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get("api/products");
-      setProducts(data);
-      setLoading(false);
-    } catch (error) {
-      setError(error.message);
-      setLoading(false);
-    }
+    dispatch(listProducts());
   };
 
   return (
