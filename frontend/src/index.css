@@ -127,8 +127,16 @@ footer {
 .col-2 {
   flex: 2 1 50rem;
 }
+.min-30 {
+  min-width: 30rem;
+}
+/* image */
 img {
   border-radius: 0.5rem;
+}
+img.small {
+  max-width: 5rem;
+  width: 100%;
 }
 img.medium {
   max-width: 29rem;
@@ -166,11 +174,11 @@ img.large {
   color: #404040;
 }
 
-.col-2 {
+.col-2.detail-img {
   display: flex;
   justify-content: center;
 }
-.col-2 img {
+.col-2.detail-img img {
   height: 50rem;
   width: 40rem;
   /* margin: 1rem 5rem; */

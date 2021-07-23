@@ -31,7 +31,7 @@ const ProductScreen = props => {
         <div>
           <Link to='/'>Back to result</Link>
           <div className='row top'>
-            <div className='col-2'>
+            <div className='col-2 detail-img'>
               <img src={product.image} alt={product.image} />
             </div>
             <div className='col-1 details'>
