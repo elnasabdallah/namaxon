@@ -8,6 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json()); //parsing json data in the body of request
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/namaxon", {
   useNewUrlParser: true,
