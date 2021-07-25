@@ -16,7 +16,6 @@ const data = {
   ],
   products: [
     {
-      id: "1",
       name: "Nike Slim Shirt",
       category: "Slim Shirts",
       image: "/images/p1.jpg",
@@ -25,10 +24,9 @@ const data = {
       brand: "Nike",
       rating: 1.5,
       numReviews: 10,
-      Description: "High quality prodcuts",
+      description: "High quality prodcuts",
     },
     {
-      id: "2",
       name: "Adidas Slim Shirt",
       category: "Slim Shirts",
       image: "/images/p2.jpg",
@@ -37,10 +35,9 @@ const data = {
       brand: "Adida",
       rating: 2.0,
       numReviews: 10,
-      Description: "High quality prodcuts",
+      description: "High quality prodcuts",
     },
     {
-      id: "3",
       name: "Lacoste Free Shirt",
       category: "Free Shirts",
       image: "/images/p3.jpg",
@@ -49,10 +46,9 @@ const data = {
       brand: "Lacoste",
       rating: 4.5,
       numReviews: 10,
-      Description: "High quality prodcuts",
+      description: "High quality prodcuts",
     },
     {
-      id: "4",
       name: "Nike T-Shirt",
       category: "T-Shirts",
       image: "/images/p4.jpg",
@@ -61,10 +57,9 @@ const data = {
       brand: "Nike",
       rating: 3.5,
       numReviews: 10,
-      Description: "High quality prodcuts",
+      description: "High quality prodcuts",
     },
     {
-      id: "5",
       name: "Puma Shirt",
       category: "Shirts",
       image: "/images/p5.jpg",
@@ -73,10 +68,9 @@ const data = {
       brand: "Puma",
       rating: 4.5,
       numReviews: 10,
-      Description: "High quality prodcuts",
+      description: "High quality prodcuts",
     },
     {
-      id: "6",
       name: "Adidas Fit Pant",
       category: "Fit Pants",
       image: "/images/p6.jpg",
@@ -85,7 +79,7 @@ const data = {
       brand: "Adidas",
       rating: 4,
       numReviews: 10,
-      Description: "High quality prodcuts",
+      description: "High quality prodcuts",
     },
   ],
 };
