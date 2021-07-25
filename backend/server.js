@@ -1,10 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
-
+import dotenv from "dotenv";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 
+dotenv.config();
 const app = express();
+
+app.use(express.json()); //parsing json data in the body of request
+
 mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/namaxon", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
