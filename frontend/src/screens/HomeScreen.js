@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-// import data from "./../data";
+import React, { useEffect } from "react";
+
 import Product from "./../components/Product";
 import MessageBox from "./../components/MessageBox";
 import LoadingBox from "./../components/LoadingBox";
@@ -13,6 +12,7 @@ const HomeScreen = () => {
   const { loading, error, products } = productList;
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   const fetchData = async () => {
