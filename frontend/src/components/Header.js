@@ -29,7 +29,7 @@ const Header = () => {
         ) : (
           ""
         )}
-        {userInfo ? (
+        {userInfo && userInfo.name ? (
           <div className='dropdown'>
             <Link to='#'>
               {userInfo.name} <i className='fa fa-caret-down'></i>

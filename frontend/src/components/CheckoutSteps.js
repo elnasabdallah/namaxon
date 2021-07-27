@@ -2,8 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const CheckoutSteps = props => {
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
   return (
     <div className='row checkout-steps'>
       <div className={props.step1 ? "active" : ""}>Signin</div>

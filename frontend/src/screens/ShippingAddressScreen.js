@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveShippingAddress } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
@@ -6,17 +6,30 @@ import CheckoutSteps from "../components/CheckoutSteps";
 const ShippingAddressScreen = props => {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
+  if (userInfo && !userInfo.name) {
+    props.history.push("/signin");
+  }
+  useEffect(() => {
+    if (userInfo && !userInfo.name) {
+      props.history.push("/signin");
+    }
+  }, [userInfo]);
   const cart = useSelector(state => state.cart);
   const { shippingAddress } = cart;
 
-  if (!userInfo) {
-    props.history.push("/signin");
-  }
-  const [fullName, setFullName] = useState(shippingAddress.fullName);
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [country, setCountry] = useState(shippingAddress.country);
+  const [fullName, setFullName] = useState(
+    shippingAddress ? shippingAddress.fullName : ""
+  );
+  const [address, setAddress] = useState(
+    shippingAddress ? shippingAddress.address : ""
+  );
+  const [city, setCity] = useState(shippingAddress ? shippingAddress.city : "");
+  const [postalCode, setPostalCode] = useState(
+    shippingAddress ? shippingAddress.postalCode : ""
+  );
+  const [country, setCountry] = useState(
+    shippingAddress ? shippingAddress.country : ""
+  );
   const dispatch = useDispatch();
 
   const submithandler = e => {

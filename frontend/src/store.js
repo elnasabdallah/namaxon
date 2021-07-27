@@ -10,7 +10,7 @@ const initialState = {
   userSignin: {
     userInfo: localStorage.getItem("userInfo")
       ? JSON.parse(localStorage.getItem("userInfo"))
-      : null,
+      : {},
   },
   cart: {
     cartItems: localStorage.getItem("cartItems")
@@ -19,6 +19,7 @@ const initialState = {
     shippingAddress: localStorage.getItem("shippingAddress")
       ? JSON.parse(localStorage.getItem("shippingAddress"))
       : {},
+    paymentMethod: "Paypal",
   },
 };
 const rootReducer = combineReducers({

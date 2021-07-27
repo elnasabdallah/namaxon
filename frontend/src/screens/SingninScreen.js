@@ -11,7 +11,6 @@ const SingninScreen = props => {
   const submitHanler = e => {
     e.preventDefault();
     dispatch(signin(email, password));
-    //todo :signin action
   };
 
   const [email, setEmail] = useState("");
@@ -24,7 +23,7 @@ const SingninScreen = props => {
   const { userInfo, loading, error } = userSignin;
 
   useEffect(() => {
-    if (userInfo) {
+    if (userInfo && userInfo.name) {
       props.history.push(redirect);
     }
   }, [props.history, redirect, userInfo]);
