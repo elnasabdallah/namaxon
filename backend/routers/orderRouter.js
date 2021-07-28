@@ -18,7 +18,7 @@ orderRouter.post(
         shippingAddress: body.shippingAddress,
         paymentMethod: body.paymentMethod,
         itemsPrice: body.itemsPrice,
-        shippingPrices: body.shippingPrices,
+        shippingPrice: body.shippingPrice,
         taxPrice: body.taxPrice,
         totalPrice: body.totalPrice,
         user: req.user._id,
