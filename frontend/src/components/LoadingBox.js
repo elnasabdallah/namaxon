@@ -3,7 +3,7 @@ import React from "react";
 const LoadingBox = () => {
   return (
     <div className='loading'>
-      <i class='fa fa-spinner fa-spin'></i> Loading ....
+      <i className='fa fa-spinner fa-spin'></i> Loading ....
     </div>
   );
 };

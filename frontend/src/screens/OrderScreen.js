@@ -1,20 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { PayPalButton } from "react-paypal-button-v2";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { detailsOrder } from "../actions/orderActions";
+import axios from "axios";
 
 const OrderScreen = props => {
   const orderId = props.match.params.id;
   const orderDetails = useSelector(state => state.orderDetails);
   const { order, loading, error } = orderDetails;
-  console.log(orderId);
+  const [sdkReady, setSdkReady] = useState(false);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(detailsOrder(orderId));
-  }, [dispatch, orderId]);
+    const addPaypalScript = async () => {
+      //create script element for paypal and add as the last child of the html body tag
+      const { data } = await axios.get("/api/config/paypal"); //get the paypal client ID
+      const script = document.createElement("script");
+      script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
+      script.async = true;
+      script.onload = () => {
+        setSdkReady(true);
+      };
+      document.body.appendChild(script); //append the script
+    };
+
+    if (!order._id) {
+      //if order detail is no loaded into state load it
+      dispatch(detailsOrder(orderId));
+    } else {
+      //if is loaded and is not  paid
+      if (!order.isPaid) {
+        if (!window.paypal) {
+          //if paypal script tag is not appended to the page
+          addPaypalScript(); //append it
+        } else {
+          setSdkReady(true); //if the script is added , setsdk to true
+        }
+      }
+    }
+  }, [dispatch, order, orderId, sdkReady]);
+
+  const successPaymentHandler = () => {
+    //to do dispatch pay order
+  };
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
@@ -128,6 +159,18 @@ const OrderScreen = props => {
                   </div>
                 </div>
               </li>
+              {!order.isPaid && (
+                <li>
+                  {!sdkReady ? (
+                    <LoadingBox></LoadingBox>
+                  ) : (
+                    <PayPalButton
+                      amount={order.totalPrice}
+                      onSuccess={successPaymentHandler}
+                    ></PayPalButton>
+                  )}
+                </li>
+              )}
             </ul>
           </div>
         </div>
