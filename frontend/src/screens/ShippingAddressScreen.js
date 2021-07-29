@@ -13,6 +13,7 @@ const ShippingAddressScreen = props => {
     if (userInfo && !userInfo.name) {
       props.history.push("/signin");
     }
+    // eslint-disable-next-line
   }, [userInfo]);
   const cart = useSelector(state => state.cart);
   const { shippingAddress } = cart;
