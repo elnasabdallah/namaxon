@@ -36,6 +36,9 @@ const Header = () => {
             </Link>
             <ul className='dropdown-content'>
               <li>
+                <Link to='/profile'>User Profile</Link>
+              </li>
+              <li>
                 <Link to='/orderhistory'>Order History</Link>
               </li>
               <li>
