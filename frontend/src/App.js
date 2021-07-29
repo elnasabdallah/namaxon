@@ -4,6 +4,7 @@ import Header from "./components/Header";
 
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
+import OrderHistoryScreen from "./screens/OrderHistoryScreen";
 import OrderScreen from "./screens/OrderScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
@@ -27,6 +28,7 @@ function App() {
           <Route path='/payment' component={PaymentMethodScreen} />
           <Route path='/placeorder' component={PlaceOrderScreen} />
           <Route path='/order/:id' component={OrderScreen} />
+          <Route path='/orderhistory' component={OrderHistoryScreen} />
         </main>
         <footer className='row center'>All rights reserved</footer>
       </div>
