@@ -6,7 +6,11 @@ import {
 } from "./reducers/productReducers";
 import { cartReducer } from "./reducers/cartReducers";
 import { userRegisterReducer, userSigninReducer } from "./reducers/userReducer";
-import { orderDetailsReducer, orderReducer } from "./reducers/orderReducers";
+import {
+  orderDetailsReducer,
+  orderPayReducer,
+  orderReducer,
+} from "./reducers/orderReducers";
 const initialState = {
   userSignin: {
     userInfo: localStorage.getItem("userInfo")
@@ -31,6 +35,7 @@ const rootReducer = combineReducers({
   userRegister: userRegisterReducer,
   orderCreate: orderReducer,
   orderDetails: orderDetailsReducer,
+  orderPay: orderPayReducer,
 });
 const composEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
