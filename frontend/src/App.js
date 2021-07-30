@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "./components/Header";
+import PrivateRoute from "./components/PrivateRoute";
 
 import CartScreen from "./screens/CartScreen";
 import HomeScreen from "./screens/HomeScreen";
@@ -30,7 +31,7 @@ function App() {
           <Route path='/placeorder' component={PlaceOrderScreen} />
           <Route path='/order/:id' component={OrderScreen} />
           <Route path='/orderhistory' component={OrderHistoryScreen} />
-          <Route path='/profile' component={ProfileScreen} />
+          <PrivateRoute path='/profile' component={ProfileScreen} />
         </main>
         <footer className='row center'>All rights reserved</footer>
       </div>

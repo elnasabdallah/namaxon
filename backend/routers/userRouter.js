@@ -3,7 +3,7 @@ import expressAsyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
 import User from "../models/userModel.js";
 import data from "./../data.js";
-import { generateToken } from "../utils.js";
+import { generateToken, isAuth } from "../utils.js";
 
 const userRouter = express.Router();
 
@@ -63,6 +63,31 @@ userRouter.get(
       res.send(user);
     } else {
       res.send(404).send({ message: "User Not Found" });
+    }
+  })
+);
+
+userRouter.put(
+  "/profile",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id);
+    if (user) {
+      user.name = req.body.name || user.name;
+      user.email = req.body.email || user.email;
+
+      if (user.password) {
+        user.password = bcrypt.hashSync(req.body.password, 8);
+      }
+      const upadatedUser = await user.save();
+
+      res.send({
+        _id: upadatedUser._id,
+        name: upadatedUser.name,
+        email: upadatedUser.email,
+        isAdmin: upadatedUser.isAdmin,
+        token: generateToken(upadatedUser),
+      });
     }
   })
 );
