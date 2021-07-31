@@ -1,6 +1,11 @@
 html {
   font-size: 62.5%; /*16 px is default : 62.5 =10px=1rem*/
   box-sizing: border-box;
+  height: 100vh;
+}
+:root {
+  --primary: #f0c040;
+  --primaryDark: #203040;
 }
 body {
   margin: 0;
@@ -28,7 +33,7 @@ body {
 
 header {
   grid-area: header;
-  background-color: #203040;
+  background-color: var(--primaryDark);
 }
 /* common classes */
 h1 {
@@ -43,7 +48,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ff8000;
+  color: var(--primary);
 }
 ul {
   padding: 0;
@@ -76,7 +81,7 @@ button:hover {
   border: 0.1rem #404040 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: var(--primary);
 }
 button.block {
   width: 100%;
@@ -108,7 +113,7 @@ main {
 }
 footer {
   grid-area: footer;
-  background-color: #203040;
+  background-color: var(--primaryDark);
   color: #fff;
 }
 .row {
@@ -238,8 +243,8 @@ img.large {
   font-weight: bold;
 }
 .checkout-steps > div.active {
-  border-top-color: #f08000;
-  color: #f08000;
+  border-top-color: var(--primary);
+  color: var(--primary);
 }
 /* dropdown */
 
@@ -254,7 +259,7 @@ img.large {
   min-width: 12rem;
   padding: 1rem;
   z-index: 1;
-  background-color: #203040;
+  background-color: var(--primaryDark);
   margin: 0;
   margin-top: 0.4rem;
   border-radius: 0.5rem;
@@ -276,6 +281,38 @@ table th {
   text-align: left;
   border: 0.1rem solid #e4e4e4;
   padding: 0.5rem;
+}
+.search {
+  position: relative;
+  width: 30rem;
+}
+.search input {
+  width: 100%;
+}
+.search button {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  font-size: 1.6rem;
+  color: #203040;
+  background-color: var(--primary);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.search button i {
+  padding: 0 0.5rem;
+}
+.open-side-bars {
+  margin-left: 1rem;
+  color: white;
+  background-color: var(--primaryDark);
+  border: 0.1rem solid rgb(155, 152, 152);
+  border-radius: 0.5rem;
+  font-size: 3rem;
+  padding: 0.2rem 0.8rem;
+}
+.open-side-bars:hover {
+  border-color: white;
 }
 
 .table button {
