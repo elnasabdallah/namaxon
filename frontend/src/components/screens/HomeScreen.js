@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 
-import Product from "./../components/Product";
-import MessageBox from "./../components/MessageBox";
-import LoadingBox from "./../components/LoadingBox";
+import Product from "../layouts/Product";
+import MessageBox from "../layouts/MessageBox";
+import LoadingBox from "../layouts/LoadingBox";
 import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../actions/productActions";
+import { listProducts } from "../../actions/productActions";
 
 const HomeScreen = () => {
   const productList = useSelector(state => state.productList);

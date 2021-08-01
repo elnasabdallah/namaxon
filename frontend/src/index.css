@@ -89,6 +89,17 @@ button.block {
 button.small {
   font-size: 1.2rem;
 }
+button.danger {
+  color: #a02020;
+}
+button.danger:hover {
+  color: white;
+  background: #a02020;
+  border-color: white;
+}
+table.product-list {
+  text-align: center;
+}
 /* Header */
 header a {
   color: white;
@@ -281,6 +292,10 @@ table th {
   text-align: left;
   border: 0.1rem solid #e4e4e4;
   padding: 0.5rem;
+}
+.product-list td,
+.product-list th {
+  text-align: center;
 }
 .search {
   position: relative;

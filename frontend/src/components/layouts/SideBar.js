@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 const SideBar = ({ setSideBar, sideBar }) => {
   return (
@@ -8,15 +9,14 @@ const SideBar = ({ setSideBar, sideBar }) => {
         <button onClick={() => setSideBar()}>x</button>
       </div>
       <div className='row'>
-        <a href=''>Pants</a>
+        <Link>Pants</Link> <i class='fa fa-arrow-right'></i>
+      </div>
+      <div className='row'>
+        <Link>Shirts</Link>
         <i class='fa fa-arrow-right'></i>
       </div>
       <div className='row'>
-        <a href=''>Shirts</a>
-        <i class='fa fa-arrow-right'></i>
-      </div>
-      <div className='row'>
-        <a href=''>Sample</a>
+        <Link>Sample</Link>
         <i class='fa fa-arrow-right'></i>
       </div>
     </SideBarWrapper>

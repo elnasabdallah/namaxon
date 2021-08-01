@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { saveShippingAddress } from "../actions/cartActions";
-import CheckoutSteps from "../components/CheckoutSteps";
+import { saveShippingAddress } from "../../actions/cartActions";
+import CheckoutSteps from "../layouts/CheckoutSteps";
 
 const ShippingAddressScreen = props => {
   const userSignin = useSelector(state => state.userSignin);

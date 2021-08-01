@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signout } from "./../actions/userAction";
-import { clearCart } from "./../actions/cartActions";
+import { signout } from "../../actions/userAction";
+import { clearCart } from "../../actions/cartActions";
 import SideBar from "./SideBar";
 import { useState } from "react";
 
